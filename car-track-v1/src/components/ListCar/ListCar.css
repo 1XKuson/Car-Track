@@ -1,8 +1,14 @@
 .footer{
     display: flex;
     flex-direction: row;
-    height: 10vh;
+    width: 100vw;
+    height: 8vh;
+    position: absolute;
+    justify-content: center;
+    bottom: 10px;
 }
 .box-car{
-    width: 20vw !important;
+    width: 200px;
+    margin: 10px;
+    background-color: bisque;
 }
