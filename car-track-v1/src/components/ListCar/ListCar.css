@@ -1,0 +1,8 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+}
+.box-car{
+    width: 20vw !important;
+}
