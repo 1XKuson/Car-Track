@@ -1,0 +1,140 @@
+:root {
+    --background-sidebar: #EEEEEE;
+    --box-shadow-template: 4px 4px 5px rgba(0, 0, 0, 0.4);
+}
+
+.detailNav {
+    display: flex;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-55%);
+    position: absolute;
+}
+
+.sideNav {
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 75vh;
+    background-color: var(--background-sidebar);
+    padding: 20px;
+    border-radius: 0 20px 20px 0;
+    box-shadow: var(--box-shadow-template);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    z-index: 10;
+}
+
+#check:checked~.sideNav {
+    
+}
+
+.sideNav .headDetail {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.startEnd {
+    color: #626262;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #858585;
+}
+
+.startEnd th {
+    text-align: start;
+    padding-right: 10px;
+}
+
+.startEnd td {
+    text-align: start;
+    padding: 0 5px;
+}
+
+.startEnd .collon {
+    padding: 0 5px;
+}
+
+.timeStation {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    overflow-y: scroll;
+}
+
+.stationCard {
+    display: flex;
+    column-gap: 15px;
+}
+
+.timeA,
+.headStation {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+}
+
+.circle {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.dash {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.sq {
+    width: 3px;
+    height: 7px;
+    background-color: black;
+}
+
+.stationDetail {
+    width: 100%;
+    font-size: 14px;
+    max-width: 160px;
+    color: #626262;
+}
+
+.slideBar {
+    display: inline-flex;
+    background-color: var(--background-sidebar);
+    padding: 5px 0 0px 0;
+    border-radius: 0 10px 10px 0;
+    box-shadow: var(--box-shadow-template);
+    z-index: 9;
+}
+
+.slideBar input[type="checkbox"] {
+    display: none;
+}
+
+.sideBarbtn img {
+    width: 30px;
+    height: 40px;
+}
+
+.sideBarbtn #backIcon {
+    display: none;
+}
+
+#check:checked~.sideBarbtn #forwardIcon {
+    display: none;
+}
+
+#check:checked~.sideBarbtn #backIcon {
+    display: inline-flex;
+}
