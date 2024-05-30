@@ -7,7 +7,7 @@ const Map = () => {
   const containerStyle = {
     width: "100vw",
     height: "100vh",
-    position: "absolute",
+    position: "relative",
   };
 
   const center = {
