@@ -5,10 +5,14 @@
     height: 8vh;
     position: absolute;
     justify-content: center;
-    bottom: 10px;
+    bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-wrap: nowrap;
+    background-color: var(--background-sidebar);
 }
 .box-car{
     width: 200px;
     margin: 10px;
-    background-color: bisque;
+    background-color: rgb(229, 126, 0);
 }
