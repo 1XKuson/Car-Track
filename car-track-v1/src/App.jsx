@@ -7,13 +7,14 @@ import Map from "./components/Map/Map";
 import DetailCar from "./components/DetailCar/DetailCar";
 import TimeNow from "./components/TimeNow/TimeNow";
 import "./App.css"
+import "./Theme.css"
 const App = () => {
   
  return(
   <>
     <Map />
     <ListCar />
-    <DetailCar />
+    {/* <DetailCar /> */}
     <TimeNow />
   </>
  );
