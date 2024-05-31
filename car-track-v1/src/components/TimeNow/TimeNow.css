@@ -1,0 +1,9 @@
+.showTime {
+    top: 8px;
+    right: 60px;
+    font-size: 30px;
+    font-weight: 500;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: 15;
+}
