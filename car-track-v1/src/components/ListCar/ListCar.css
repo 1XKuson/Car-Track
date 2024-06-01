@@ -25,3 +25,8 @@
     justify-content: center;
     cursor: pointer;
 }
+
+.box-car.active {
+    color: white;
+    background-color: var(--orange-color);
+}

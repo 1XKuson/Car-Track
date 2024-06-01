@@ -3,7 +3,7 @@ import DetailCar from "../../components/DetailCar/DetailCar";
 import "./ListCar.css";
 
 const ListCar = () => {
-  const [listCar, setListCar] = useState([
+  const [listCar] = useState([
     { id: 1, name: "Unicon 1" },
     { id: 2, name: "Unicon 2" },
     { id: 3, name: "Unicon 3" },
@@ -16,8 +16,9 @@ const ListCar = () => {
 
   const handleCarClick = (car) => {
     if (selectedCar && selectedCar.id === car.id) {
-      // If the same car is clicked, toggle the side navigation
-      setShowSideNav(!showSideNav);
+      // If the same car is clicked, hide the side navigation and deselect the car
+      setShowSideNav(false);
+      setSelectedCar(null);
     } else {
       // If a different car is clicked, update the selected car and show the side navigation
       setSelectedCar(car);
@@ -35,7 +36,7 @@ const ListCar = () => {
       <div className="footer">
         {listCar.map((car) => (
           <div
-            className="box-car"
+            className={`box-car ${selectedCar && selectedCar.id === car.id ? "active" : ""}`}
             key={car.id}
             onClick={() => handleCarClick(car)}
           >
