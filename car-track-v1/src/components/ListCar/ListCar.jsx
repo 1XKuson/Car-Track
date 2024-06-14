@@ -27,24 +27,29 @@ const ListCar = () => {
   };
 
   return (
-    <>
+    <div className="big-container">
       <DetailCar
         show={showSideNav}
         setShowSideNav={setShowSideNav}
         selectedCar={selectedCar}
       />
       <div className="footer">
+        <div className="openbtn">
+          <img src="../../src/Icon/arrowForward.png" alt="" />
+        </div>
         {listCar.map((car) => (
-          <div
-            className={`box-car ${selectedCar && selectedCar.id === car.id ? "active" : ""}`}
-            key={car.id}
-            onClick={() => handleCarClick(car)}
-          >
-            {car.name}
-          </div>
+          <>
+            <div
+              className={`box-car ${selectedCar && selectedCar.id === car.id ? "active" : ""}`}
+              key={car.id}
+              onClick={() => handleCarClick(car)}
+            >
+              {car.name}
+            </div>
+          </>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

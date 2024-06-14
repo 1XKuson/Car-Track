@@ -30,3 +30,43 @@
     color: white;
     background-color: var(--orange-color);
 }
+
+.openbtn {
+    display: none;
+    position: absolute;
+    height: 2rem;
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.openbtn img {
+    width: 20px;
+    display: none;
+    height: 40px;
+    rotate: 90deg;
+    background-color: var(--background-sidebar);
+    border-radius: 0 10px 10px 0;
+    box-shadow: var(--box-shadow-template);
+    z-index: 9;
+}
+
+@media screen and (max-width: 480px) {
+    .big-container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .footer {
+        bottom: 90%;
+        flex-direction: column;
+        height: 8vh;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: scroll;
+    }
+    .box-car {
+        width: 80%;
+        font-size: 16px;
+        padding: 15px;
+    }
+}
