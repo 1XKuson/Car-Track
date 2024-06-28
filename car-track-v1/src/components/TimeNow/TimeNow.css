@@ -7,3 +7,9 @@
     position: absolute;
     z-index: 15;
 }
+
+@media (max-width: 768px) {
+    .showTime {
+        display: none;
+    }
+}

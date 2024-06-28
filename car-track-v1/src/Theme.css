@@ -1,3 +1,7 @@
 :root {
     --orange-color: #FF7A00;
+
+    --background-sidebar: #EEEEEE;
+    --box-shadow-template: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    --box-shadow-bottom: 0px -2px 10px rgba(0, 0, 0, 0.4);
 }

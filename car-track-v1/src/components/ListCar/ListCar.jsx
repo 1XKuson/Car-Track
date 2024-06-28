@@ -26,6 +26,15 @@ const ListCar = () => {
     }
   };
 
+  const handleDropdownChange = (event) => {
+    const selectedCarId = parseInt(event.target.value, 10);
+    const car = listCar.find((car) => car.id === selectedCarId);
+    if (car) {
+      setSelectedCar(car);
+      setShowSideNav(true);
+    }
+  };
+
   return (
     <div className="big-container">
       <DetailCar
@@ -33,21 +42,27 @@ const ListCar = () => {
         setShowSideNav={setShowSideNav}
         selectedCar={selectedCar}
       />
-      <div className="footer">
-        <div className="openbtn">
-          <img src="../../src/Icon/arrowForward.png" alt="" />
-        </div>
+      <div className="footerDesktop">
         {listCar.map((car) => (
-          <>
-            <div
-              className={`box-car ${selectedCar && selectedCar.id === car.id ? "active" : ""}`}
-              key={car.id}
-              onClick={() => handleCarClick(car)}
-            >
-              {car.name}
-            </div>
-          </>
+          <div
+            className={`box-car ${selectedCar && selectedCar.id === car.id ? "active" : ""}`}
+            key={car.id}
+            onClick={() => handleCarClick(car)}
+          >
+            {car.name}
+          </div>
         ))}
+      </div>
+
+      <div className="footerMobile">
+        <select className="selectCar" onChange={handleDropdownChange} value={selectedCar ? selectedCar.id : ""}>
+          <option value="" disabled>Select a car</option>
+          {listCar.map((car) => (
+            <option key={car.id} value={car.id}>
+              {car.name}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );
