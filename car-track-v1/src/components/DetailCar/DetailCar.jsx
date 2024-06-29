@@ -1,6 +1,8 @@
 import React from "react";
 import StationCard from "./StationCard";
 import "./DetailCar.css";
+import arrowForward from "../../Icon/arrowForward.png"
+import arrowBack from "../../Icon/arrowBack.png"
 
 const Station = [
   {
@@ -90,8 +92,8 @@ const DetailCar = ({ show, setShowSideNav, selectedCar }) => {
         onChange={() => setShowSideNav(!show)}
       />
       <label htmlFor="check" className="sideBarbtn">
-        <img src="../../src/Icon/arrowForward.png" alt="" id="forwardIcon" />
-        <img src="../../src/Icon/arrowBack.png" alt="" id="backIcon" />
+        <img src={arrowForward} alt="" id="forwardIcon" />
+        <img src={arrowBack} alt="" id="backIcon" />
       </label>
 
       <div className="sideNav">
