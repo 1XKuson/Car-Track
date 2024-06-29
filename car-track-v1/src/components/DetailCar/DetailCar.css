@@ -64,11 +64,20 @@
 
 .timeStation {
     margin-top: 15px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 7px; */
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+.inTimeStation {
     display: flex;
     flex-direction: column;
     align-items: start;
-    row-gap: 5px;
-    overflow-y: scroll;
+    row-gap: 7px;
 }
 
 .stationCard {
@@ -76,11 +85,18 @@
     column-gap: 15px;
 }
 
-.timeA,
-.headStation {
-    min-width: 40px;
+.timeA {
+    min-width: 50px;
+    max-width: 100px;
     font-size: 18px;
     font-weight: 600;
+}
+
+.headStation {
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 100px;
+    max-width: 160px;
 }
 
 .line {
@@ -109,12 +125,12 @@
     background-color: black;
 }
 
-.stationDetail {
+/* .stationDetail {
     min-width: 100px;
     font-size: 14px;
     max-width: 160px;
     color: #626262;
-}
+} */
 
 input[type="checkbox"] {
     display: none;
@@ -184,7 +200,7 @@ input[type="checkbox"] {
     }
 
     #check:checked~.sideNav {
-        height: 70vh;
+        height: 50vh;
         width: 100vw;
     }
     
@@ -193,7 +209,7 @@ input[type="checkbox"] {
     }
 
     .sideNav .headDetail {
-        font-size: 35px;
+        font-size: 25px;
         font-weight: 600;
     }
 
@@ -203,7 +219,8 @@ input[type="checkbox"] {
     }
 
     .timeStation {
-        width: 70vw;
+        width: 90vw;
+        height: 45%;
         margin: 20px 0 50px 0;
     }
 }

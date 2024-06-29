@@ -10,13 +10,13 @@ const StationCard = ({ time, station, detail }) => {
           <div className="sq"></div>
           <div className="sq"></div>
           <div className="sq"></div>
-          <div className="sq"></div>
-          <div className="sq"></div>
+          {/* <div className="sq"></div>
+          <div className="sq"></div> */}
         </div>
       </div>
       <div className="station">
         <div className="headStation">{station}</div>
-        <div className="stationDetail">{detail}</div>
+        {/* <div className="stationDetail">{detail}</div> */}
       </div>
     </div>
   );

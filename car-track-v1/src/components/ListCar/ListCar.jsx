@@ -13,6 +13,7 @@ const ListCar = () => {
 
   const [showSideNav, setShowSideNav] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleCarClick = (car) => {
     if (selectedCar && selectedCar.id === car.id) {
@@ -26,13 +27,10 @@ const ListCar = () => {
     }
   };
 
-  const handleDropdownChange = (event) => {
-    const selectedCarId = parseInt(event.target.value, 10);
-    const car = listCar.find((car) => car.id === selectedCarId);
-    if (car) {
-      setSelectedCar(car);
-      setShowSideNav(true);
-    }
+  const handleDropdownChange = (car) => {
+    setSelectedCar(car);
+    setShowSideNav(true);
+    setDropdownOpen(false);
   };
 
   return (
@@ -55,14 +53,22 @@ const ListCar = () => {
       </div>
 
       <div className="footerMobile">
-        <select className="selectCar" onChange={handleDropdownChange} value={selectedCar ? selectedCar.id : ""}>
-          <option value="" disabled>Select a car</option>
-          {listCar.map((car) => (
-            <option key={car.id} value={car.id}>
-              {car.name}
-            </option>
-          ))}
-        </select>
+        <div className="dropdown" onClick={() => setDropdownOpen(!dropdownOpen)}>
+          <div className="dropdown-selected">
+            {selectedCar ? selectedCar.name : "Select a car"}
+          </div>
+          <ul className={`dropdown-menu ${dropdownOpen ? "open" : ""}`}>
+            {listCar.map((car) => (
+              <li
+                key={car.id}
+                onClick={() => handleDropdownChange(car)}
+                className={`dropdown-item ${selectedCar && selectedCar.id === car.id ? "active" : ""}`}
+              >
+                {car.name}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
