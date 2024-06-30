@@ -35,11 +35,11 @@ const ListCar = () => {
 
   return (
     <div className="big-container">
-      <DetailCar
+      {/* <DetailCar
         show={showSideNav}
         setShowSideNav={setShowSideNav}
         selectedCar={selectedCar}
-      />
+      /> */}
       <div className="footerDesktop">
         {listCar.map((car) => (
           <div

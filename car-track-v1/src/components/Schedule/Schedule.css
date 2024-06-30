@@ -1,0 +1,23 @@
+.schedule {
+    left: 20px;
+    bottom: 100px;
+    position: absolute;
+    z-index: 16;
+}
+
+.schedule button {
+    width: 70px;
+    height: 70px;
+    background-color: var(--orange-color);
+    border: none;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow-template);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.schedule button img {
+    width: 40px;
+    padding: 3px 0 0 5px;
+}

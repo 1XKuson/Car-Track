@@ -6,15 +6,20 @@ import { Outlet } from "react-router-dom";
 import Map from "./components/Map/Map";
 import DetailCar from "./components/DetailCar/DetailCar";
 import TimeNow from "./components/TimeNow/TimeNow";
+import Schedule from "./components/Schedule/Schedule";
 import "./App.css"
 import "./Theme.css"
 const App = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
   
  return(
   <>
+    <Schedule />
     <Map />
     <ListCar />
-    {/* <DetailCar /> */}
     <TimeNow />
   </>
  );
