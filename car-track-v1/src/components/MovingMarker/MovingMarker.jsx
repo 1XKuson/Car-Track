@@ -13,14 +13,17 @@ const MovingMarker = ({position}) => {
   return (
     <>
       {position.map((position) => (
+       
         <Marker
           key={position.unicon_id}
           position={{ lat: position.position.lat, lng: position.position.lng }   
         }
         // label={position.unicon_id}
         label={{
-          text: position.unicon_id,
-          color: "black" 
+          text: "Tram "+position.unicon_id.slice(7),
+          color: "black", 
+          fontWeight:"bold",
+          fontSize:"20px"
         }}
         
         icon={iconStyle}
