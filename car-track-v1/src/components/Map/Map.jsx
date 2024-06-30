@@ -4,15 +4,15 @@ import {
   useJsApiLoader,
   Polyline,
   Marker,
+  DirectionsService, 
+  DirectionsRenderer
 } from "@react-google-maps/api";
 
 import pathCoordinates from "../route";
 import icon from "../../Icon/arrowForward.png";
 import mapTheme from "../../components/mapTheme";
 import MovingMarker from "../MovingMarker/MovingMarker";
-const Map = ({position}) => {
-
-  // console.log(position)
+const Map = ({ position, center, setCenter }) => {
 
   const containerStyle = {
     width: "100vw",
@@ -20,10 +20,6 @@ const Map = ({position}) => {
     position: "relative",
   };
 
-  const center = {
-    lat: 13.72649077839198,
-    lng: 100.77435998380524,
-  };
 
   const { isLoaded, loadError } = useJsApiLoader({
     id: "google-map-script",
@@ -54,6 +50,7 @@ const Map = ({position}) => {
     anchor: new window.google.maps.Point(12, 0), // Make sure window.google.maps is loaded before this line
   };
 
+ 
   return (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -82,11 +79,12 @@ const Map = ({position}) => {
         }}
       />
 
-      <Marker
+      {/* <Marker
         position={{ lat: 13.727440788132853, lng: 100.7743592727686 }}
         title={"AdvancedMarker with custom html content."}
-      ></Marker>
-      <MovingMarker position={position}/>
+      ></Marker> */}
+
+      <MovingMarker position={position} />
     </GoogleMap>
   );
 };
