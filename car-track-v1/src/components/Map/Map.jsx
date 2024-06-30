@@ -4,22 +4,20 @@ import {
   useJsApiLoader,
   Polyline,
   Marker,
-  DirectionsService, 
-  DirectionsRenderer
+  DirectionsService,
+  DirectionsRenderer,
 } from "@react-google-maps/api";
 
-import pathCoordinates from "../route";
+import { pathCoordinates, pathCoordinates2 } from "../route";
 import icon from "../../Icon/arrowForward.png";
 import mapTheme from "../../components/mapTheme";
 import MovingMarker from "../MovingMarker/MovingMarker";
 const Map = ({ position, center, setCenter }) => {
-
   const containerStyle = {
     width: "100vw",
     height: "100vh",
     position: "relative",
   };
-
 
   const { isLoaded, loadError } = useJsApiLoader({
     id: "google-map-script",
@@ -50,7 +48,6 @@ const Map = ({ position, center, setCenter }) => {
     anchor: new window.google.maps.Point(12, 0), // Make sure window.google.maps is loaded before this line
   };
 
- 
   return (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -65,7 +62,23 @@ const Map = ({ position, center, setCenter }) => {
       <Polyline
         path={pathCoordinates}
         options={{
-          strokeColor: "#F59C43",
+          strokeColor: "#CC0000",
+          strokeOpacity: 1.0,
+          strokeWeight: 4,
+          offsetY: 2,
+          icons: [
+            {
+              icon: arrow,
+              offset: "10%", // Start position of the first icon
+              repeat: "80px", // Distance between each icon
+            },
+          ],
+        }}
+      />
+      <Polyline
+        path={pathCoordinates2}
+        options={{
+          strokeColor: "#0000FF",
           strokeOpacity: 1.0,
           strokeWeight: 4,
           offsetY: 2,
