@@ -8,7 +8,6 @@ const ListCar = ({ list, position, setCenter }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleCarClick = (car) => {
-
     setCenter(car.position);
     if (selectedCar === car.unicon_id) {
       setShowSideNav(false);
@@ -27,6 +26,10 @@ const ListCar = ({ list, position, setCenter }) => {
     setDropdownOpen(false);
   };
 
+  const nameMap = (key) => {
+    return "Tram " + key[key.length - 1];
+  };
+
   return (
     <div className="big-container">
       {/* <DetailCar
@@ -43,7 +46,7 @@ const ListCar = ({ list, position, setCenter }) => {
             key={index}
             onClick={() => handleCarClick(car)}
           >
-            {car.unicon_id}
+            Tram {index + 1}
           </div>
         ))}
       </div>
@@ -54,7 +57,7 @@ const ListCar = ({ list, position, setCenter }) => {
           onClick={() => setDropdownOpen(!dropdownOpen)}
         >
           <div className="dropdown-selected">
-            {selectedCar ? selectedCar : "Select a car"}
+            {selectedCar ? nameMap(selectedCar) : "Select a car"}
           </div>
           <ul className={`dropdown-menu ${dropdownOpen ? "open" : ""}`}>
             {position.map((car, index) => (
@@ -65,7 +68,7 @@ const ListCar = ({ list, position, setCenter }) => {
                   selectedCar && selectedCar === car.unicon_id ? "active" : ""
                 }`}
               >
-                {car.unicon_id}
+                 Tram {index + 1}
               </li>
             ))}
           </ul>
