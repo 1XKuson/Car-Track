@@ -14,8 +14,38 @@ const Schedule = () => {
     <div className="schedule">
       <button onClick={openModal}><img src={scheduleIcon} alt="" /></button>
       <Modal show={showModal} onClose={closeModal}>
-        <h2>Schedule Modal</h2>
-        <p>This is the modal content for the schedule.</p>
+        <h2>Golf Car Schedule</h2>
+        <div className='time'>เวลาเดินรถ 8:30 - 16:30 น.</div>
+        <div className='timeSchedule'>
+            <div className='leftSchedule'>
+                <div className="headSchedule">PEAK TIME</div>
+                <table>
+                    <tr>
+                        <td>8:30</td>
+                        <td>-</td>
+                        <td>9:30</td>
+                        <td>น.</td>
+                    </tr>
+                    <tr>
+                        <td>11:30</td>
+                        <td>-</td>
+                        <td>13:30</td>
+                        <td>น.</td>
+                    </tr>
+                    <tr>
+                        <td>15:30</td>
+                        <td>-</td>
+                        <td>16:30</td>
+                        <td>น.</td>
+                    </tr>
+                </table>
+                <div>เดินรถทุก 5 นาที/คัน</div>
+            </div>
+            <div className='rigitSchedule'>
+                <div className="headSchedule">ช่วงเวลาอื่น</div>
+                <div>เดินรถทุก 10 นาที/คัน</div>
+            </div>
+        </div>
       </Modal>
     </div>
   );

@@ -5,7 +5,7 @@
     font-weight: 500;
     text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2);
     position: absolute;
-    z-index: 15;
+    z-index: 21;
 }
 
 @media (max-width: 768px) {

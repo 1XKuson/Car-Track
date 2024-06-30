@@ -1,0 +1,25 @@
+.logoComponent {
+    width: 100%;
+    background-color: white;
+    padding: 5px 0;
+    column-gap: 10px;
+    display: flex;
+    position: absolute;
+    z-index: 18;
+}
+
+.logoComponent img {
+    height: 50px;
+}
+
+@media (max-width: 768px) {
+    .logoComponent {
+        bottom: 0;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logoComponent img {
+        height: 7.8vw;
+    }
+}

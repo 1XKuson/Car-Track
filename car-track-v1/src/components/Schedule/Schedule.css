@@ -2,7 +2,7 @@
     left: 20px;
     bottom: 100px;
     position: absolute;
-    z-index: 16;
+    z-index: 25;
 }
 
 .schedule button {
@@ -15,9 +15,46 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .schedule button img {
     width: 40px;
     padding: 3px 0 0 5px;
+}
+
+.timeSchedule {
+    display: flex;
+    justify-content: space-around;
+}
+
+.headSchedule {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.leftSchedule,
+.rigitSchedule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .schedule {
+        left: 20px;
+        bottom: 70px;
+    }
+
+    .timeSchedule {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leftSchedule table {
+        width: 200px;
+      }
 }

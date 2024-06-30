@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Marker } from "@react-google-maps/api";
 import icon_car from "../../assets/golf.png"
-import "./marker.css"
 const MovingMarker = ({position}) => {
   // console.log(position)
 
