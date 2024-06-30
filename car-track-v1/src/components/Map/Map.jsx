@@ -10,7 +10,10 @@ import pathCoordinates from "../route";
 import icon from "../../Icon/arrowForward.png";
 import mapTheme from "../../components/mapTheme";
 import MovingMarker from "../MovingMarker/MovingMarker";
-const Map = () => {
+const Map = ({position}) => {
+
+  // console.log(position)
+
   const containerStyle = {
     width: "100vw",
     height: "100vh",
@@ -83,7 +86,7 @@ const Map = () => {
         position={{ lat: 13.727440788132853, lng: 100.7743592727686 }}
         title={"AdvancedMarker with custom html content."}
       ></Marker>
-      <MovingMarker/>
+      <MovingMarker position={position}/>
     </GoogleMap>
   );
 };

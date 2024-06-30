@@ -2,21 +2,13 @@ import React, { useState } from "react";
 import DetailCar from "../../components/DetailCar/DetailCar";
 import "./ListCar.css";
 
-const ListCar = () => {
-  const [listCar] = useState([
-    { id: 1, name: "Unicon 1" },
-    { id: 2, name: "Unicon 2" },
-    { id: 3, name: "Unicon 3" },
-    { id: 4, name: "Unicon 4" },
-    { id: 5, name: "Unicon 5" },
-  ]);
-
+const ListCar = ({list}) => {
   const [showSideNav, setShowSideNav] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleCarClick = (car) => {
-    if (selectedCar && selectedCar.id === car.id) {
+    if (selectedCar === car) {
       // If the same car is clicked, hide the side navigation and deselect the car
       setShowSideNav(false);
       setSelectedCar(null);
@@ -32,7 +24,7 @@ const ListCar = () => {
     setShowSideNav(true);
     setDropdownOpen(false);
   };
-
+  
   return (
     <div className="big-container">
       {/* <DetailCar
@@ -41,13 +33,13 @@ const ListCar = () => {
         selectedCar={selectedCar}
       /> */}
       <div className="footerDesktop">
-        {listCar.map((car) => (
+        {list.map((car,index) => (
           <div
-            className={`box-car ${selectedCar && selectedCar.id === car.id ? "active" : ""}`}
-            key={car.id}
+            className={`box-car ${selectedCar && selectedCar === car ? "active" : ""}`}
+            key={index}
             onClick={() => handleCarClick(car)}
           >
-            {car.name}
+            {car}
           </div>
         ))}
       </div>
@@ -55,16 +47,16 @@ const ListCar = () => {
       <div className="footerMobile">
         <div className="dropdown" onClick={() => setDropdownOpen(!dropdownOpen)}>
           <div className="dropdown-selected">
-            {selectedCar ? selectedCar.name : "Select a car"}
+            {selectedCar ? selectedCar : "Select a car"}
           </div>
           <ul className={`dropdown-menu ${dropdownOpen ? "open" : ""}`}>
-            {listCar.map((car) => (
+            {list.map((car,index) => (
               <li
-                key={car.id}
+                key={index}
                 onClick={() => handleDropdownChange(car)}
-                className={`dropdown-item ${selectedCar && selectedCar.id === car.id ? "active" : ""}`}
+                className={`dropdown-item ${selectedCar && selectedCar === car ? "active" : ""}`}
               >
-                {car.name}
+                {car}
               </li>
             ))}
           </ul>
