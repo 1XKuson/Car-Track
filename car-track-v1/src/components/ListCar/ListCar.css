@@ -11,6 +11,7 @@
   flex-wrap: nowrap;
   background-color: var(--background-sidebar);
   box-shadow: var(--box-shadow-bottom);
+  z-index: 4;
 }
 
 .footerMobile {

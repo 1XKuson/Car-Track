@@ -8,6 +8,7 @@ import DetailCar from "./components/DetailCar/DetailCar";
 import TimeNow from "./components/TimeNow/TimeNow";
 import Schedule from "./components/Schedule/Schedule";
 import Logo from "./components/Logo/Logo";
+import EditPage from "./components/EditPage/EditPage";
 import "./App.css"
 import "./Theme.css"
 import "./App.css";
@@ -54,6 +55,7 @@ const App = () => {
 
   return (
     <>
+    <EditPage />
     <Logo />
     <div className="test">* ขณะนี้กำลังอยู่ในช่วงการทดลองระบบ *</div>
       <Schedule />

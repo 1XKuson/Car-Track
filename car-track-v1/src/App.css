@@ -17,7 +17,21 @@
   margin-top: 15px;
   text-align: center;
   position: absolute;
-  z-index: 20;
+  z-index: 2;
+}
+
+.edit-page {
+  width: 100vw;
+  height: 100vh;
+  font-size: 5vw;
+  font-weight: 600;
+  color: red;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
 }
 
 @media (max-width: 768px) {
@@ -28,5 +42,9 @@
     width: 75vw;
     bottom: 70px;
     right: 0;
+  }
+
+  .edit-page{
+    font-size: 10vw;
   }
 }
