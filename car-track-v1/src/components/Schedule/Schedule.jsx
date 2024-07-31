@@ -14,8 +14,8 @@ const Schedule = () => {
     <div className="schedule">
       <button onClick={openModal}><img src={scheduleIcon} alt="" /></button>
       <Modal show={showModal} onClose={closeModal}>
-        <h2>Golf Car Schedule</h2>
-        <div className='time'>เวลาเดินรถ 8:30 - 16:30 น.</div>
+        <h2 style={{textAlign:"center"}}>Tram Cars Schedule</h2>
+        <div className='time' style={{textAlign:"center"}}>เวลาเดินรถ 8:30 - 16:30 น.</div>
         <div className='timeSchedule'>
             <div className='leftSchedule'>
                 <div className="headSchedule">PEAK TIME</div>

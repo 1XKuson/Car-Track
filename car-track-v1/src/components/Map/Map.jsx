@@ -13,6 +13,7 @@ import icon from "../../Icon/arrowForward.png";
 import mapTheme from "../../components/mapTheme";
 import MovingMarker from "../MovingMarker/MovingMarker";
 const Map = ({ position, center, setCenter }) => {
+  console.log(center);
   const containerStyle = {
     width: "100vw",
     height: "100vh",

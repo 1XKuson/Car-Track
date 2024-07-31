@@ -68,7 +68,7 @@ const ListCar = ({ list, position, setCenter }) => {
                   selectedCar && selectedCar === car.unicon_id ? "active" : ""
                 }`}
               >
-                 Tram {index + 1}
+                Tram {index + 1}
               </li>
             ))}
           </ul>
