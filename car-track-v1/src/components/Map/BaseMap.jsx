@@ -20,19 +20,42 @@ const BaseMap = ({ positions, center, setCenter }) => {
         { name: "หอประชุมเจ้าพระยาสุรวงษ์ไวยวัฒน์ (วร บุนนาค)", lat: 1230.0, lng: 1500.0 },
     ];
 
+    // const tramRoute = [
+    //     { lat: 1235.0, lng: 920.0 },
+    //     { lat: 1235.0, lng: 880.0 },
+    //     { lat: 1338.0, lng: 880.0 },
+    //     { lat: 1338.0, lng: 1137.0 },
+    //     { lat: 1260.0, lng: 1137.0 },
+    //     { lat: 1260.0, lng: 1343.0 },
+    //     { lat: 1338.0, lng: 1343.0 },
+    //     { lat: 1338.0, lng: 976.4 },
+    //     { lat: 1386.0, lng: 976.4 },
+    //     { lat: 1386.0, lng: 880.0 },
+    //     { lat: 1235.0, lng: 880.0 },
+    //     { lat: 1235.0, lng: 920.0 }
+    // ];
+
     const tramRoute = [
-        { lat: 1238.0, lng: 920.0 },
-        { lat: 1238.0, lng: 880.0 },
-        { lat: 1338.0, lng: 880.0 },
-        { lat: 1338.0, lng: 1137.0 },
+        { lat: 1229.0, lng: 1500.0 },
+        { lat: 1229.0, lng: 1466.0 },
+        { lat: 1260.0, lng: 1466.0 },
         { lat: 1260.0, lng: 1137.0 },
-        { lat: 1260.0, lng: 1343.0 },
-        { lat: 1338.0, lng: 1343.0 },
+        { lat: 1235.0, lng: 1137.0 },
+        { lat: 1235.0, lng: 880.0 },
+        { lat: 1338.0, lng: 880.0 },
         { lat: 1338.0, lng: 976.4 },
         { lat: 1386.0, lng: 976.4 },
         { lat: 1386.0, lng: 880.0 },
-        { lat: 1231.0, lng: 880.0 },
-        { lat: 1231.0, lng: 920.0 }
+        { lat: 1235.0, lng: 880.0 },
+        { lat: 1235.0, lng: 1137.0 },
+        { lat: 1260.0, lng: 1137.0 },
+        { lat: 1260.0, lng: 1343.0 },
+        { lat: 1338.0, lng: 1343.0 },
+        { lat: 1338.0, lng: 1344.0 },
+        { lat: 1260.0, lng: 1344.0 },
+        { lat: 1260.0, lng: 1466.0 },
+        { lat: 1229.0, lng: 1466.0 },
+        { lat: 1229.0, lng: 1500.0 }
     ];
 
     const convertPosition = (position) => {
@@ -162,11 +185,12 @@ const BaseMap = ({ positions, center, setCenter }) => {
                 url={mapBase}
                 bounds={[[0, 0], [2400, 2250]]}
             />
-            {/* <Polyline
+            <Polyline
                 positions={adjustToLeftHandDrive(tramRoute, 1.8)}
+                // positions={tramRoute}
                 color="#ff7a00"
                 weight={5}
-            /> */}
+            />
 
             {tramStations.map((station, idx) => (
                 <Marker
@@ -182,7 +206,7 @@ const BaseMap = ({ positions, center, setCenter }) => {
             {positions.map(p => (
                 <Marker
                     key={p.unicon_id}
-                    position={convertPosition(p.position)}
+                    position={snapPosition(convertPosition(p.position))}
                     icon={carMarker}
                 >
                 <Tooltip

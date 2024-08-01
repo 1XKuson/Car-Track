@@ -16,6 +16,7 @@ const Schedule = () => {
       <Modal show={showModal} onClose={closeModal}>
         <h2 style={{textAlign:"center"}}>Tram Cars Schedule</h2>
         <div className='time' style={{textAlign:"center"}}>เวลาเดินรถ 8:30 - 16:30 น.</div>
+        <div className='time' style={{textAlign:"center", fontWeight:"bold", color:"#ff7a00"}}>เส้นทางเฉพาะช่วงวันที่ 02 ส.ค. - 04 ส.ค. 2567</div>
         <div className='timeSchedule'>
             <div className='leftSchedule'>
                 <div className="headSchedule">PEAK TIME</div>
