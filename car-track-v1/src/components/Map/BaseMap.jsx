@@ -116,8 +116,8 @@ const BaseMap = ({ positions, center, setCenter }) => {
     });
     const stationMarker = L.icon({
         iconUrl: loadStationMarker,
-        iconSize: [28, 28],
-        iconAnchor: [14, 32],
+        iconSize: [48, 48],
+        iconAnchor: [24, 48],
         popupAnchor: [0, 0]
     });
     const popupStyle = {
@@ -188,7 +188,7 @@ const BaseMap = ({ positions, center, setCenter }) => {
             <Polyline
                 positions={adjustToLeftHandDrive(tramRoute, 1.8)}
                 // positions={tramRoute}
-                color="#ff7a00"
+                color="#fcac63"
                 weight={5}
             />
 
