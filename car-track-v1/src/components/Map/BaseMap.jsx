@@ -116,8 +116,8 @@ const BaseMap = ({ positions, center, setCenter }) => {
     });
     const stationMarker = L.icon({
         iconUrl: loadStationMarker,
-        iconSize: [48, 48],
-        iconAnchor: [24, 48],
+        iconSize: [36, 36],
+        iconAnchor: [18, 36],
         popupAnchor: [0, 0]
     });
     const popupStyle = {
