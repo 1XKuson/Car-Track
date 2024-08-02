@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { useState, useEffect } from "react";
 import ListCar from "./components/ListCar/ListCar";
 import { Outlet } from "react-router-dom";
 import Map from "./components/Map/BaseMap";
@@ -9,8 +8,6 @@ import TimeNow from "./components/TimeNow/TimeNow";
 import Schedule from "./components/Schedule/Schedule";
 import Logo from "./components/Logo/Logo";
 import EditPage from "./components/EditPage/EditPage";
-import "./App.css"
-import "./Theme.css"
 import "./App.css";
 import "./Theme.css";
 import axios from "axios";
@@ -19,7 +16,6 @@ const App = () => {
   const [list, setList] = useState([]);
   const [position, setPosition] = useState([]);
   const [center, setCenter] = useState();
-  // const [recenterable, setRecenterable] = useState()
 
   const fetchData = async () => {
     try {
@@ -45,22 +41,37 @@ const App = () => {
     setCenter({
       lat: 13.7265090, 
       lng: 100.775554
-    })
+    });
     // setCenter({
     //   lat: 13.726639, 
     //   lng: 100.774854
     // })
+
     const interval = setInterval(() => {
       fetchPosition();
     }, 1000);
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-5J4D7XWX6T";
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-5J4D7XWX6T');
+    };
+  }, []);
+
   return (
     <>
-    {/* <EditPage /> */}
-    <Logo />
-    <div className="test">* อยู่ในช่วงระหว่างการพัฒนาระบบ *</div>
+      {/* <EditPage /> */}
+      <Logo />
+      <div className="test">* อยู่ในช่วงระหว่างการพัฒนาระบบ *</div>
       <Schedule />
       <Map positions={position} center={center} setCenter={setCenter} />
       <ListCar list={list} position={position} setCenter={setCenter} />
