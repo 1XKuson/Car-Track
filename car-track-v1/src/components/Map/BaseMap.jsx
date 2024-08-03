@@ -7,9 +7,7 @@ import loadCarMarker from '../../assets/golf.png';
 import loadStationMarker from '../../assets/stop-marker.png';
 import loadClientMarker from '../../assets/client-marker.png';
 
-const BaseMap = ({ positions, center, setCenter }) => {
-
-    const [clientLocation, setClientLocation] = useState(null);
+const BaseMap = ({ positions, center, clientLocation }) => {
 
     const tramStations = [
         { name: "อาคาร CCA", lat: 1238.0, lng: 900.0 },
@@ -179,16 +177,6 @@ const BaseMap = ({ positions, center, setCenter }) => {
         return adjustedRoute.map(point => [point.lat, point.lng]);
     };
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success);
-    }
-
-    function success(position) {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        setClientLocation({lat: latitude,lng: longitude });
-    }
-
     return (
         <MapContainer
             center={center ? convertPosition(center) : convertPosition({ lat: 13.726639, lng: 100.774854 })}
@@ -211,11 +199,14 @@ const BaseMap = ({ positions, center, setCenter }) => {
                 weight={5}
             />
 
-            <Marker
-                position={clientLocation ? convertPosition(clientLocation) : [0,0]}
-                icon={clientMarker}
-            >
-            </Marker>
+            {clientLocation && (
+                <Marker
+                    position={convertPosition(clientLocation)}
+                    icon={clientMarker}
+                >
+                </Marker>
+            )}
+
             {tramStations.map((station, idx) => (
                 <Marker
                     key={idx}

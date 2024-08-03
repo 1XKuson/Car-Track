@@ -16,6 +16,7 @@ const App = () => {
   const [list, setList] = useState([]);
   const [position, setPosition] = useState([]);
   const [center, setCenter] = useState();
+  const [clientLocation, setClientLocation] = useState(null);
 
   const fetchData = async () => {
     try {
@@ -36,10 +37,16 @@ const App = () => {
     }
   };
 
+  function success(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    setClientLocation({ lat: latitude, lng: longitude });
+  }
+
   useEffect(() => {
     fetchData();
     setCenter({
-      lat: 13.7265090, 
+      lat: 13.7265090,
       lng: 100.775554
     });
     // setCenter({
@@ -49,6 +56,9 @@ const App = () => {
 
     const interval = setInterval(() => {
       fetchPosition();
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success);
+      }
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -73,7 +83,7 @@ const App = () => {
       <Logo />
       <div className="test">* อยู่ในช่วงระหว่างการพัฒนาระบบ *</div>
       <Schedule />
-      <Map positions={position} center={center} setCenter={setCenter} />
+      <Map positions={position} center={center} clientLocation={clientLocation} />
       <ListCar list={list} position={position} setCenter={setCenter} />
       {/* <DetailCar /> */}
       <TimeNow />
