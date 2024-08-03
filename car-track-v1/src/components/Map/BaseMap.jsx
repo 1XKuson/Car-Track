@@ -1,12 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { MapContainer, ImageOverlay, Marker, Popup, Polyline, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import mapBase from '../../assets/mapbase.jpg';
 import loadCarMarker from '../../assets/golf.png';
 import loadStationMarker from '../../assets/stop-marker.png';
+import loadClientMarker from '../../assets/client-marker.png';
 
 const BaseMap = ({ positions, center, setCenter }) => {
+
+    const [clientLocation, setClientLocation] = useState(null);
 
     const tramStations = [
         { name: "อาคาร CCA", lat: 1238.0, lng: 900.0 },
@@ -120,6 +123,12 @@ const BaseMap = ({ positions, center, setCenter }) => {
         iconAnchor: [18, 36],
         popupAnchor: [0, 0]
     });
+    const clientMarker = L.icon({
+        iconUrl: loadClientMarker,
+        iconSize: [48, 48],
+        iconAnchor: [24, 48],
+        popupAnchor: [0, 0]
+    });
     const popupStyle = {
         borderRadius: '8px',
         color: '#ff7a00',
@@ -150,25 +159,35 @@ const BaseMap = ({ positions, center, setCenter }) => {
                 P1.lng = P1.lng + offset;
                 P2.lng = P2.lng + offset;
             } else
-            if (route[i].lat < route[i + 1].lat) {
-                P1.lng = P1.lng - offset;
-                P2.lng = P2.lng - offset;
-            }
+                if (route[i].lat < route[i + 1].lat) {
+                    P1.lng = P1.lng - offset;
+                    P2.lng = P2.lng - offset;
+                }
 
             if (route[i].lng > route[i + 1].lng) {
                 P1.lat = P1.lat - offset;
                 P2.lat = P2.lat - offset;
             } else
-            if (route[i].lng < route[i + 1].lng) {
-                P1.lat = P1.lat + offset;
-                P2.lat = P2.lat + offset;
-            }
+                if (route[i].lng < route[i + 1].lng) {
+                    P1.lat = P1.lat + offset;
+                    P2.lat = P2.lat + offset;
+                }
             adjustedRoute.pop();
             adjustedRoute.push(P1);
             adjustedRoute.push(P2);
         }
         return adjustedRoute.map(point => [point.lat, point.lng]);
     };
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success);
+    }
+
+    function success(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        setClientLocation({lat: latitude,lng: longitude });
+    }
 
     return (
         <MapContainer
@@ -192,6 +211,11 @@ const BaseMap = ({ positions, center, setCenter }) => {
                 weight={5}
             />
 
+            <Marker
+                position={clientLocation ? convertPosition(clientLocation) : [0,0]}
+                icon={clientMarker}
+            >
+            </Marker>
             {tramStations.map((station, idx) => (
                 <Marker
                     key={idx}
@@ -209,16 +233,16 @@ const BaseMap = ({ positions, center, setCenter }) => {
                     position={snapPosition(convertPosition(p.position))}
                     icon={carMarker}
                 >
-                <Tooltip
-                    direction="top"
-                    offset={[0, -18]}
-                    opacity={0.7}
-                    permanent
-                >
-                    <span style={{color: "black", fontWeight: "bold", fontSize: "12px"}}>
-                        {"tram " + p.unicon_id.slice(7)}
-                    </span>
-                </Tooltip>
+                    <Tooltip
+                        direction="top"
+                        offset={[0, -18]}
+                        opacity={0.7}
+                        permanent
+                    >
+                        <span style={{ color: "black", fontWeight: "bold", fontSize: "12px" }}>
+                            {"tram " + p.unicon_id.slice(7)}
+                        </span>
+                    </Tooltip>
                 </Marker>
             ))}
 
