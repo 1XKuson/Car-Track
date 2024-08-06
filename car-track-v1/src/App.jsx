@@ -46,13 +46,9 @@ const App = () => {
   useEffect(() => {
     fetchData();
     setCenter({
-      lat: 13.7265090,
-      lng: 100.775554
-    });
-    // setCenter({
-    //   lat: 13.726639, 
-    //   lng: 100.774854
-    // })
+      lat: 13.726639, 
+      lng: 100.774754
+    })
 
     const interval = setInterval(() => {
       fetchPosition();

@@ -9,6 +9,7 @@ import loadClientMarker from '../../assets/client-marker.png';
 
 const BaseMap = ({ positions, center, clientLocation }) => {
 
+    const clientPoint = clientLocation;
     const tramStations = [
         { name: "อาคาร CCA", lat: 1238.0, lng: 900.0 },
         { name: "อาคารเรียนรวม 12 ชั้น", lat: 1342.0, lng: 950.0 },
@@ -18,54 +19,32 @@ const BaseMap = ({ positions, center, clientLocation }) => {
         { name: "อาคารสำนักงานคณะบดี", lat: 1332.0, lng: 1320.0 },
         { name: "อาคารภาควิชาวิศวกรรมอิเล็กทรอนิกส์", lat: 1342.0, lng: 1210.0 },
         { name: "ศูนย์อาหาร C", lat: 1332.0, lng: 915.0 },
-        { name: "หอประชุมเจ้าพระยาสุรวงษ์ไวยวัฒน์ (วร บุนนาค)", lat: 1230.0, lng: 1500.0 },
     ];
 
-    // const tramRoute = [
-    //     { lat: 1235.0, lng: 920.0 },
-    //     { lat: 1235.0, lng: 880.0 },
-    //     { lat: 1338.0, lng: 880.0 },
-    //     { lat: 1338.0, lng: 1137.0 },
-    //     { lat: 1260.0, lng: 1137.0 },
-    //     { lat: 1260.0, lng: 1343.0 },
-    //     { lat: 1338.0, lng: 1343.0 },
-    //     { lat: 1338.0, lng: 976.4 },
-    //     { lat: 1386.0, lng: 976.4 },
-    //     { lat: 1386.0, lng: 880.0 },
-    //     { lat: 1235.0, lng: 880.0 },
-    //     { lat: 1235.0, lng: 920.0 }
-    // ];
-
     const tramRoute = [
-        { lat: 1229.0, lng: 1500.0 },
-        { lat: 1229.0, lng: 1466.0 },
-        { lat: 1260.0, lng: 1466.0 },
-        { lat: 1260.0, lng: 1137.0 },
-        { lat: 1235.0, lng: 1137.0 },
+        { lat: 1235.0, lng: 920.0 },
         { lat: 1235.0, lng: 880.0 },
         { lat: 1338.0, lng: 880.0 },
+        { lat: 1338.0, lng: 1137.0 },
+        { lat: 1260.0, lng: 1137.0 },
+        { lat: 1260.0, lng: 1343.0 },
+        { lat: 1338.0, lng: 1343.0 },
         { lat: 1338.0, lng: 976.4 },
         { lat: 1386.0, lng: 976.4 },
         { lat: 1386.0, lng: 880.0 },
         { lat: 1235.0, lng: 880.0 },
-        { lat: 1235.0, lng: 1137.0 },
-        { lat: 1260.0, lng: 1137.0 },
-        { lat: 1260.0, lng: 1343.0 },
-        { lat: 1338.0, lng: 1343.0 },
-        { lat: 1338.0, lng: 1344.0 },
-        { lat: 1260.0, lng: 1344.0 },
-        { lat: 1260.0, lng: 1466.0 },
-        { lat: 1229.0, lng: 1466.0 },
-        { lat: 1229.0, lng: 1500.0 }
+        { lat: 1235.0, lng: 920.0 }
     ];
 
     const convertPosition = (position) => {
         const inMinLat = 13.714890;
-        const inMaxLat = 13.736920;
+        const inMaxLat = 13.736720;
+        // const inMaxLat = 13.736920;
         const outMinLat = 0;
         const outMaxLat = 2400;
         const inMinLng = 100.762470;
-        const inMaxLng = 100.786600;
+        const inMaxLng = 100.786500;
+        // const inMaxLng = 100.786600;
         const outMinLng = 0;
         const outMaxLng = 2250;
 
@@ -199,9 +178,9 @@ const BaseMap = ({ positions, center, clientLocation }) => {
                 weight={5}
             />
 
-            {clientLocation && (
+            {clientPoint && (
                 <Marker
-                    position={convertPosition(clientLocation)}
+                    position={convertPosition(clientPoint)}
                     icon={clientMarker}
                 >
                 </Marker>
