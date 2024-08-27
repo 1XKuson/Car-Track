@@ -1,19 +1,12 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback} from "react";
 import {
   GoogleMap,
   useJsApiLoader,
-  Polyline,
-  Marker,
-  DirectionsService,
-  DirectionsRenderer,
 } from "@react-google-maps/api";
 
-import { pathCoordinates, pathCoordinates2 } from "../route";
-import icon from "../../Icon/arrowForward.png";
 import mapTheme from "../mapTheme";
 import MovingMarker from "../MovingMarker/MovingMarker";
 const FloodMap = ({ position, center, setCenter }) => {
-  console.log(center);
   const containerStyle = {
     width: "100vw",
     height: "100vh",
@@ -49,11 +42,22 @@ const FloodMap = ({ position, center, setCenter }) => {
     anchor: new window.google.maps.Point(12, 0), // Make sure window.google.maps is loaded before this line
   };
 
+  if(center.lat == 0 && center.lng == 0){
+    position.forEach(item => {
+      if (item.unicon_id.match(/^unicon_\d{2}$/)) {
+        setCenter({
+          lat: item.position.lat,
+          lng: item.position.lng,
+        });
+      }
+    });
+  }
+
   return (
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={18}
+      zoom={17}
       onLoad={onLoad}
       onUnmount={onUnmount}
       options={{

@@ -141,9 +141,16 @@ const App = () => {
       lat: 13.726639,
       lng: 100.774754
     });
+    if (location.pathname.toLowerCase() === '/floodmap') {
+      setCenter({
+        lat: 0,
+        lng: 0
+      });
+    }
 
     const interval = setInterval(() => {
       fetchPosition();
+
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success);
       }
@@ -168,14 +175,14 @@ const App = () => {
   return (
     <Router>
       <Logo />
-      {(location.pathname === '/' || location.pathname === '/gmap') && <div className="test">* อยู่ในช่วงระหว่างการพัฒนาระบบ *</div>}
-      {(location.pathname === '/' || location.pathname === '/gmap') && <Schedule />}
+      {(location.pathname.toLowerCase() === '/' || location.pathname.toLowerCase() === '/gmap') && <div className="test">* อยู่ในช่วงระหว่างการพัฒนาระบบ *</div>}
+      {(location.pathname.toLowerCase() === '/' || location.pathname.toLowerCase() === '/gmap') && <Schedule />}
       <Routes>
         <Route path="/" element={<Map positions={position} center={center} clientLocation={clientLocation} />} />
-        <Route path="/gmap" element={<Gpage position={position} center={center} setCenter={setCenter}/>} />
-        <Route path="/floodmap" element={<FloodMap position={position} center={center} setCenter={setCenter}/>} />
+        <Route path="/gmap" element={<Gpage position={position} center={center} setCenter={setCenter} />} />
+        <Route path="/floodmap" element={<FloodMap position={position} center={center} setCenter={setCenter} />} />
       </Routes>
-      {(location.pathname === '/' || location.pathname === '/gmap') && <ListCar list={list} position={position} setCenter={setCenter} />}
+      {(location.pathname.toLowerCase() === '/' || location.pathname.toLowerCase() === '/gmap') && <ListCar list={list} position={position} setCenter={setCenter} />}
       <TimeNow />
     </Router>
   );
