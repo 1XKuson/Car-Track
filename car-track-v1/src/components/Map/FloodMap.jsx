@@ -10,9 +10,9 @@ import {
 
 import { pathCoordinates, pathCoordinates2 } from "../route";
 import icon from "../../Icon/arrowForward.png";
-import mapTheme from "../../components/mapTheme";
+import mapTheme from "../mapTheme";
 import MovingMarker from "../MovingMarker/MovingMarker";
-const Map = ({ position, center, setCenter }) => {
+const FloodMap = ({ position, center, setCenter }) => {
   console.log(center);
   const containerStyle = {
     width: "100vw",
@@ -60,47 +60,9 @@ const Map = ({ position, center, setCenter }) => {
         styles: mapTheme,
       }}
     >
-      <Polyline
-        path={pathCoordinates}
-        options={{
-          strokeColor: "#CC0000",
-          strokeOpacity: 1.0,
-          strokeWeight: 4,
-          offsetY: 2,
-          icons: [
-            {
-              icon: arrow,
-              offset: "10%", // Start position of the first icon
-              repeat: "80px", // Distance between each icon
-            },
-          ],
-        }}
-      />
-      <Polyline
-        path={pathCoordinates2}
-        options={{
-          strokeColor: "#0000FF",
-          strokeOpacity: 1.0,
-          strokeWeight: 4,
-          offsetY: 2,
-          icons: [
-            {
-              icon: arrow,
-              offset: "10%", // Start position of the first icon
-              repeat: "50px", // Distance between each icon
-            },
-          ],
-        }}
-      />
-
-      {/* <Marker
-        position={{ lat: 13.727440788132853, lng: 100.7743592727686 }}
-        title={"AdvancedMarker with custom html content."}
-      ></Marker> */}
-
-      <MovingMarker position={position} name={"Tram"} />
+      <MovingMarker position={position} name={"Boat"} />
     </GoogleMap>
   );
 };
 
-export default Map;
+export default FloodMap;

@@ -197,7 +197,7 @@ const BaseMap = ({ positions, center, clientLocation }) => {
                     </Popup>
                 </Marker>
             ))}
-            {positions.map(p => (
+            {positions.filter(p => p.unicon_id.match(/^unicon_\d$/)).map(p => (
                 <Marker
                     key={p.unicon_id}
                     position={snapPosition(convertPosition(p.position))}

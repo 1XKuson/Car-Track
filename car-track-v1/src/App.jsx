@@ -97,6 +97,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ListCar from "./components/ListCar/ListCar";
 import Map from "./components/Map/BaseMap";
 import Gpage from './components/Map/Map';
+import FloodMap from './components/Map/FloodMap';
 import Schedule from "./components/Schedule/Schedule";
 import Logo from "./components/Logo/Logo";
 import TimeNow from "./components/TimeNow/TimeNow";
@@ -167,13 +168,14 @@ const App = () => {
   return (
     <Router>
       <Logo />
-      <div className="test">* อยู่ในช่วงระหว่างการพัฒนาระบบ *</div>
-      <Schedule />
+      {(location.pathname === '/' || location.pathname === '/gmap') && <div className="test">* อยู่ในช่วงระหว่างการพัฒนาระบบ *</div>}
+      {(location.pathname === '/' || location.pathname === '/gmap') && <Schedule />}
       <Routes>
         <Route path="/" element={<Map positions={position} center={center} clientLocation={clientLocation} />} />
         <Route path="/gmap" element={<Gpage position={position} center={center} setCenter={setCenter}/>} />
+        <Route path="/floodmap" element={<FloodMap position={position} center={center} setCenter={setCenter}/>} />
       </Routes>
-      <ListCar list={list} position={position} setCenter={setCenter} />
+      {(location.pathname === '/' || location.pathname === '/gmap') && <ListCar list={list} position={position} setCenter={setCenter} />}
       <TimeNow />
     </Router>
   );
