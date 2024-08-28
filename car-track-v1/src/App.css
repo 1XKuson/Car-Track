@@ -34,6 +34,32 @@
   z-index: 3;
 }
 
+.floodLink {
+  z-index: 25;
+  position: absolute;
+  right: 20px;
+  bottom: 110px;
+  text-decoration: none;
+  width: fit-content;
+  border: none;
+  border-radius: 10vw;
+  padding: 12px 20px;
+  color: white;
+  font-size: 16px;
+  background-color: #0398fc;
+  box-shadow: var(--box-shadow-template);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.floodLink img{
+  width: 40px;
+  margin-left: 12px;
+}
+
 @media (max-width: 768px) {
   .test {
     font-size: 20px;
@@ -47,10 +73,9 @@
   .edit-page{
     font-size: 10vw;
   }
-}
 
-.floodlink {
-  display: absolute;
-  z-index: 25;
-  margin: 100px;
+  .floodLink {
+    right: 20px;
+    bottom: 75px;
+  }
 }

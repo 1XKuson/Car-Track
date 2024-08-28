@@ -104,6 +104,7 @@ import TimeNow from "./components/TimeNow/TimeNow";
 import axios from "axios";
 import "./App.css";
 import "./Theme.css";
+import boatIcon from './Icon/boat.png'
 
 const App = () => {
   const [list, setList] = useState([]);
@@ -133,6 +134,14 @@ const App = () => {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     setClientLocation({ lat: latitude, lng: longitude });
+  }
+
+  const floodLink = () => {
+    setCenter({
+      lat: 0,
+      lng: 0
+    });
+    window.location.href = '/floodmap';
   }
 
   useEffect(() => {
@@ -177,6 +186,12 @@ const App = () => {
       <Logo />
       {(location.pathname.toLowerCase() === '/' || location.pathname.toLowerCase() === '/gmap') && <div className="test">* อยู่ในช่วงระหว่างการพัฒนาระบบ *</div>}
       {(location.pathname.toLowerCase() === '/' || location.pathname.toLowerCase() === '/gmap') && <Schedule />}
+      {(location.pathname.toLowerCase() === '/' || location.pathname.toLowerCase() === '/gmap') &&
+        <button className="floodLink" onClick={floodLink}>
+          <label>เรือช่วยเหลือน้ำท่วม</label>
+          <img src={boatIcon} alt="" />
+        </button>
+      }
       <Routes>
         <Route path="/" element={<Map positions={position} center={center} clientLocation={clientLocation} />} />
         <Route path="/gmap" element={<Gpage position={position} center={center} setCenter={setCenter} />} />

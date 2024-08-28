@@ -1,7 +1,7 @@
 .schedule {
     display: flex;
     left: 20px;
-    bottom: 100px;
+    bottom: 110px;
     position: absolute;
     z-index: 25;
 }
@@ -17,24 +17,6 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-}
-
-.flood-btn {
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-.flood-btn button{
-    width: fit-content !important;
-    border-radius: 10vw !important;
-    padding: 0 20px !important;
-    color: white;
-    font-size: 16px;
-    background-color: #0398fc;
-}
-
-.flood-btn button img{
-    margin-right: 12px;
 }
 
 .schedule button img {

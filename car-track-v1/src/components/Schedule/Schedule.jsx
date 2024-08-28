@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
 import './Schedule.css';
 import scheduleIcon from '../../Icon/schedule.png'
-import boatIcon from '../../Icon/boat.png'
-import { Link } from 'react-router-dom';
 
 const Schedule = () => {
   const [showModal, setShowModal] = useState(false);
@@ -15,9 +13,6 @@ const Schedule = () => {
   return (
     <div className="schedule">
       <button onClick={openModal}><img src={scheduleIcon} alt="" /></button>
-      <Link className='flood-btn' to="/floodmap">
-      <button ><img src={boatIcon}/>เรือช่วยเหลือน้ำท่วม</button>
-      </Link>
       <Modal show={showModal} onClose={closeModal}>
         <h2 style={{textAlign:"center"}}>Tram Cars Schedule</h2>
         <div className='time' style={{textAlign:"center"}}>เวลาเดินรถ 8:30 - 16:30 น.</div>
