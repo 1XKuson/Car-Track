@@ -15,7 +15,7 @@ const Schedule = () => {
   return (
     <div className="schedule">
       <button onClick={openModal}><img src={scheduleIcon} alt="" /></button>
-      <Link className='flood-btn' to="http://www.campustransit.eng.kmitl.ac.th/floodmap">
+      <Link className='flood-btn' to="/floodmap">
       <button ><img src={boatIcon}/>เรือช่วยเหลือน้ำท่วม</button>
       </Link>
       <Modal show={showModal} onClose={closeModal}>
