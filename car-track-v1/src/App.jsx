@@ -177,6 +177,7 @@ const App = () => {
       <Logo />
       {(location.pathname.toLowerCase() === '/' || location.pathname.toLowerCase() === '/gmap') && <div className="test">* อยู่ในช่วงระหว่างการพัฒนาระบบ *</div>}
       {(location.pathname.toLowerCase() === '/' || location.pathname.toLowerCase() === '/gmap') && <Schedule />}
+      <a href="http://www.campustransit.eng.kmitl.ac.th/floodmap" className="floodlink">Hello</a>
       <Routes>
         <Route path="/" element={<Map positions={position} center={center} clientLocation={clientLocation} />} />
         <Route path="/gmap" element={<Gpage position={position} center={center} setCenter={setCenter} />} />
